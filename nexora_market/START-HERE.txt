@@ -1,0 +1,7 @@
+NEXORA MARKET
+1. Open this folder in VS Code.
+2. Open terminal -> cd backend -> npm install -> copy .env.example .env -> npm run dev
+3. Open second terminal -> cd frontend -> npm install -> npm run dev
+4. Open http://localhost:5173
+5. MongoDB is optional for demo catalog; set MONGODB_URI in backend/.env for persistence.
+6. For Amazon/Flipkart, add your approved affiliate/API URLs to product records. The project intentionally does not scrape either marketplace.

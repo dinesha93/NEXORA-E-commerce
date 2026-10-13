@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/backend" }
+    },
+    {
+      "label": "Install frontend dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/frontend" }
+    },
+    {
+      "label": "Backend: dev server",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [{ "regexp": ".", "file": 1, "location": 2, "message": 3 }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Nexora API running on",
+          "endsPattern": "MongoDB"
+        }
+      },
+      "options": { "cwd": "${workspaceFolder}/backend" }
+    },
+    {
+      "label": "Frontend: Vite dev server",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [{ "regexp": ".", "file": 1, "location": 2, "message": 3 }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*VITE.*",
+          "endsPattern": "Local:.*http://localhost:5173"
+        }
+      },
+      "options": { "cwd": "${workspaceFolder}/frontend" }
+    },
+    {
+      "label": "Dev: backend + frontend",
+      "dependsOrder": "parallel",
+      "dependsOn": ["Backend: dev server", "Frontend: Vite dev server"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}
